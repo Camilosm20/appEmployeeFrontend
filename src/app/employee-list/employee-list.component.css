@@ -1,0 +1,38 @@
+.employee-table td, tr{
+  text-align: center;
+}
+
+.employee-table th{
+  color: #008AD2;
+}
+
+.edit-button, .delete-button, .add-button {
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.add-button {
+  background-color: #28a745;
+  color: white;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}

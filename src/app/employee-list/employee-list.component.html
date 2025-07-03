@@ -1,0 +1,50 @@
+<p class="fw-bold fs-3">Lista de Empleados</p>
+
+<div *ngIf="loading">Cargando empleados...</div>
+
+<div *ngIf="error" class="error-message">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && employees.length === 0 && !error">
+  No hay empleados registrados.
+</div>
+
+<table *ngIf="employees.length > 0 && !loading" class="employee-table table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fecha Ingreso</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Cargo</th>
+            <th>Departamento</th>
+            <th>Telefono</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.create_at }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.cargo }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.phone }}</td>
+        <td *ngIf="employee.active">
+            Activo
+        </td>
+        <td *ngIf="!employee.active">
+            Inactivo
+        </td>
+        <td class="d-flex gap-2">
+            <button (click)="editEmployee(employee.id)" class="btn btn-info text-white rounded-4">Editar</button>
+            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger rounded-4">Eliminar</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<button routerLink="/add-employee" class="btn btn-success rounded-4">Registrar Nuevo Empleado</button>
